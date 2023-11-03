@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <FrameLayout
+        android:clickable="true"
+        android:background="@drawable/background_magic_emoji_tab"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <TextView
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="魔表-加载中......"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/tab_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/magic_multi_emoji_tab_title_height"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/fl_magic_clear_container"
+                android:layout_width="@dimen/dimen_45dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="6dp">
+                <com.yxcorp.gifshow.widget.textview.PressedDisableWithAlphaImageView
+                    android:id="@+id/iv_magic_clear"
+                    android:layout_width="@dimen/dimen_35dp"
+                    android:layout_height="@dimen/dimen_35dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/magic_emoji_clear_default"
+                    android:tint="#898A8C" />
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tabsList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/faceList"
+            android:layout_marginTop="@dimen/magic_multi_emoji_tab_title_height"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+</layout>

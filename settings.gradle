@@ -1,0 +1,31 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven {
+            credentials {
+                username 'iqLuKm'
+                password 'pomH01oYcR'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/117933-release-sPkE7F/'
+        }
+    }
+}
+rootProject.name = "CcBeautyApp"
+include ':app'
+
+include ':localaar:contentcreator'
+include ':localaar:mediaplayer'

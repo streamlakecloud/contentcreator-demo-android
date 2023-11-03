@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.kwai.cc.beauty.tob.textureview.AutoFitTextureView
+                android:id="@+id/cameraPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:id="@+id/switch_face"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="24dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/camera_switch_camera_back_outter"
+                android:src="@drawable/shoot_icon_cameraback_white_s_record_normal" />
+
+            <TextView
+                android:id="@+id/tv_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="翻转"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+
+        <Button
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_face"
+            android:layout_marginTop="10dp"
+            android:id="@+id/btnTakePhoto"
+            android:text="拍照"
+            android:textColor="@color/red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <SeekBar
+            android:id="@+id/seekBarBeauty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="30dp"
+            android:max="100"
+            android:progress="0"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="0dp"
+            android:layout_height="15dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

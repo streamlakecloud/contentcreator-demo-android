@@ -1,0 +1,90 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    // namespace 'com.example.ccapp'
+    namespace 'com.streamlake.demo'
+    compileSdk 33
+
+    defaultConfig {
+//        applicationId "com.chinablue.tv"
+//        applicationId "com.streamlake.demo"
+        // applicationId "com.streamlake.app.android.delete.test"
+        applicationId "com.streamlake.app.android"
+//        applicationId "com.sbds.miaoyin"
+        minSdk 24
+        targetSdk 33
+        versionCode 9999
+        versionName "9.9.9.9"
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = ["YXCORP_GIFSHOW_ID": applicationId]
+    }
+
+    signingConfigs {
+        releaseConfig {
+            storeFile file(project.projectDir.toString() + '/keystore_setting.keystore')
+            storePassword "123456"
+            keyAlias "ijkplayer"
+            keyPassword "123456"
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.releaseConfig
+        }
+        release {
+            signingConfig signingConfigs.releaseConfig
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+    dataBinding {
+        enable true
+    }
+
+    packagingOptions {
+        pickFirst 'META-INF/*'
+        pickFirst 'git.properties'
+    }
+    project.configurations.all {
+        exclude group: 'com.mob', module: 'MobGUI'
+        exclude group: "com.facebook.fresco", module: "imagepipeline-base"
+        exclude group: "com.google.guava", module: "listenablefuture"
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    compileOnly 'com.mob.sdk:adsdk:2.7.16'
+//    testImplementation 'junit:junit:4.13.2'
+//    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+//    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    api project(':localaar:contentcreator')
+    api project(':localaar:mediaplayer')
+}
+apply from: "./common_dependency.gradle"

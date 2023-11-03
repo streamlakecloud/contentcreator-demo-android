@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/black"
+        android:paddingHorizontal="10dp"
+        android:paddingBottom="10dp"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btnClearBeauty"
+            android:text="重置美颜"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.yxcorp.gifshow.prettify.v4.prettify.widget.PrettifyDoubleSeekBar
+            android:id="@+id/filter_seek_bar"
+            style="@style/PrettifyDoubleSeekBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/filter_divider_view"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:clickable="true"
+            android:max="100"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            app:KwaiSeekBarPaddingBottom="12dp"
+            app:KwaiSeekBarPaddingLeft="7dp"
+            app:KwaiSeekBarPaddingRight="7dp" />
+        <include
+            android:id="@+id/includeBeautyBar"
+            layout="@layout/filter_double_seek_bar_layout" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listPrettifyBeauty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>
